@@ -34,18 +34,8 @@
   --radius: 10px;
   --wrap: 1180px;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1B1715; --surface: #1B1715; --soft: #241F1C; --fg: #F4EEE9; --muted: #A99D95;
-    --line: #342D29; --accent: #E9A67E; --accent-fg: #1B1715; --accent-soft: #33261E; --danger: #E88466;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #1B1715; --surface: #1B1715; --soft: #241F1C; --fg: #F4EEE9; --muted: #A99D95;
-  --line: #342D29; --accent: #E9A67E; --accent-fg: #1B1715; --accent-soft: #33261E; --danger: #E88466;
-  color-scheme: dark;
-}
+/* Single light theme by choice: the site stays white in dark mode too. */
+:root { color-scheme: light only; }
 
 * { box-sizing: border-box; }
 body {
