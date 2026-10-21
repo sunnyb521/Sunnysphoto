@@ -13,37 +13,37 @@
 <meta property="og:url" content="https://sunnysphoto.com/">
 <meta property="og:image" content="https://sunnysphoto.com/photos/87bb8b88c4783054845341d746a60c1a.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600&display=swap">
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style id="site-css">
-/* Layout: quiet editorial grid — left-aligned hero with one framed photo, a flowing column gallery,
-   two session cards, one gold call to action. Photos carry the color; the chrome stays warm-neutral. */
+/* Layout: white page, photographs first. A wide cover image under a slim nav, a short intro, an edge-to-edge
+   gallery, sessions as a plain list with hairline rules, one warm apricot call to action. */
 :root {
-  --bg: #FBFAF7;
+  --bg: #FFFFFF;
   --surface: #FFFFFF;
-  --soft: #F1EEE7;
-  --fg: #1C1A17;
-  --muted: #6B665D;
-  --line: #E4E0D7;
-  --accent: #C48C24;
-  --accent-fg: #1C1A17;
-  --accent-soft: #F6EBD2;
-  --danger: #B3472E;
-  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
-  --body: "Figtree", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --radius: 14px;
-  --wrap: 1120px;
+  --soft: #FBF6F2;
+  --fg: #2A2420;
+  --muted: #7C716A;
+  --line: #EFE7E1;
+  --accent: #E4956F;
+  --accent-fg: #2A2420;
+  --accent-soft: #FBEFE6;
+  --danger: #C2543A;
+  --display: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
+  --body: "Mulish", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --radius: 10px;
+  --wrap: 1180px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #141311; --surface: #1C1A17; --soft: #201E1A; --fg: #F2EFE9; --muted: #A69F93;
-    --line: #2C2924; --accent: #E0A94A; --accent-fg: #141311; --accent-soft: #2E2617; --danger: #E07A5F;
+    --bg: #1B1715; --surface: #1B1715; --soft: #241F1C; --fg: #F4EEE9; --muted: #A99D95;
+    --line: #342D29; --accent: #E9A67E; --accent-fg: #1B1715; --accent-soft: #33261E; --danger: #E88466;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #141311; --surface: #1C1A17; --soft: #201E1A; --fg: #F2EFE9; --muted: #A69F93;
-  --line: #2C2924; --accent: #E0A94A; --accent-fg: #141311; --accent-soft: #2E2617; --danger: #E07A5F;
+  --bg: #1B1715; --surface: #1B1715; --soft: #241F1C; --fg: #F4EEE9; --muted: #A99D95;
+  --line: #342D29; --accent: #E9A67E; --accent-fg: #1B1715; --accent-soft: #33261E; --danger: #E88466;
   color-scheme: dark;
 }
 
@@ -52,8 +52,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--body);
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 body::before {
@@ -62,10 +62,10 @@ body::before {
 }
 a { color: inherit; }
 img { max-width: 100%; display: block; }
-h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
-h1 { font-size: clamp(2.4rem, 6vw, 4.4rem); }
-h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
-h3 { font-size: 1.35rem; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 4.2vw, 3rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.3rem; }
 p { margin: 0; }
 button { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -76,96 +76,82 @@ button { font: inherit; color: inherit; }
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-.eyebrow { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.lede { font-size: 1.15rem; color: var(--muted); max-width: 34rem; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 36rem; line-height: 1.65; }
+.muted { color: var(--muted); }
 
 /* Header */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
-.brand { font-family: var(--display); font-weight: 700; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
-.brand .dot { color: var(--accent); }
-.nav { display: flex; align-items: center; gap: 6px 18px; flex-wrap: wrap; justify-content: flex-end; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); }
+.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.brand { font-family: var(--display); font-weight: 500; font-size: 1.3rem; text-decoration: none; white-space: nowrap; }
+.nav { display: flex; align-items: center; gap: 6px 22px; flex-wrap: wrap; justify-content: flex-end; }
 .nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 0.95rem; }
 .nav a:hover { color: var(--fg); }
-.nav .nav-cta { color: var(--accent-fg); background: var(--accent); padding: 8px 14px; border-radius: 999px; font-weight: 600; }
+.nav .nav-cta { color: var(--accent-fg); background: var(--accent); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); text-decoration: none; font-weight: 600; cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); text-decoration: none; font-weight: 600; cursor: pointer; transition: transform .15s ease, background .15s ease; }
 .btn:hover { transform: translateY(-1px); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
 .btn.quiet { background: transparent; }
 .btn.danger { color: var(--danger); }
-.btn.small { padding: 7px 12px; font-size: 0.9rem; }
+.btn.small { padding: 8px 14px; font-size: 0.9rem; }
 .btn[disabled] { opacity: .55; cursor: default; transform: none; }
+.link { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
 
-/* Hero */
-.hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 7vw, 96px); }
-.hero-text { display: grid; gap: 22px; min-width: 0; }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-art { min-width: 0; }
-.frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--soft); box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); }
+/* Hero: cover photo, then a short intro */
+.hero { padding-block: 4px 0; }
+.frame { position: relative; aspect-ratio: 3 / 2; max-width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--soft); }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
-.frame.placeholder { background: linear-gradient(150deg, var(--soft) 0%, var(--accent-soft) 55%, var(--soft) 100%); }
-.frame.placeholder .vf { position: absolute; inset: 14%; }
-.frame.placeholder .vf::before, .frame.placeholder .vf::after, .frame.placeholder .vf i::before, .frame.placeholder .vf i::after {
-  content: ""; position: absolute; width: 28px; height: 28px; border: 2px solid var(--accent); opacity: .8;
-}
-.frame.placeholder .vf::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
-.frame.placeholder .vf::after { top: 0; right: 0; border-left: 0; border-bottom: 0; }
-.frame.placeholder .vf i::before { bottom: 0; left: 0; border-right: 0; border-top: 0; }
-.frame.placeholder .vf i::after { bottom: 0; right: 0; border-left: 0; border-top: 0; }
-.frame.placeholder .ring { position: absolute; left: 50%; top: 50%; width: 34%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; border: 1.5px solid var(--accent); opacity: .5; }
-.frame.placeholder .ring::after { content: ""; position: absolute; inset: 22%; border-radius: 50%; background: var(--accent); opacity: .35; }
+.frame.placeholder { background: linear-gradient(160deg, var(--soft), var(--accent-soft)); aspect-ratio: 3 / 1.4; }
+.frame.placeholder .vf, .frame.placeholder .ring { display: none; }
+.intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px 48px; align-items: end; padding-block: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 40px); }
+.intro h1 { max-width: 20ch; }
+.intro-side { display: grid; gap: 18px; justify-items: start; }
 
 /* Sections */
-.section { padding-block: clamp(40px, 6vw, 80px); border-top: 1px solid var(--line); }
-.section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; margin-bottom: 28px; }
-.section-head .lede { max-width: 30rem; font-size: 1.02rem; }
-.chips { display: flex; gap: 8px; flex-wrap: wrap; }
-.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-weight: 500; font-size: 0.92rem; cursor: pointer; }
-.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.section { padding-block: clamp(36px, 6vw, 72px); }
+.section + .section { border-top: 1px solid var(--line); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 22px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 7px 14px; font-weight: 500; font-size: 0.9rem; cursor: pointer; color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent-soft); color: var(--fg); border-color: var(--accent-soft); }
 
 /* Gallery */
-.gallery { columns: 3 240px; column-gap: 14px; }
-.ph { break-inside: avoid; margin: 0 0 14px; position: relative; border-radius: 10px; overflow: hidden; background: var(--soft); cursor: zoom-in; }
-.ph img { width: 100%; height: auto; object-fit: cover; transition: transform .4s ease; }
-.ph:hover img { transform: scale(1.02); }
-.ph figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 12px 10px; font-size: 0.85rem; color: #fff; background: linear-gradient(to top, rgba(0,0,0,.55), transparent); opacity: 0; transition: opacity .25s ease; }
+.gallery { columns: 3 260px; column-gap: 10px; }
+.ph { break-inside: avoid; margin: 0 0 10px; position: relative; border-radius: 6px; overflow: hidden; background: var(--soft); cursor: zoom-in; }
+.ph img { width: 100%; height: auto; object-fit: cover; transition: transform .5s ease; }
+.ph:hover img { transform: scale(1.015); }
+.ph figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 12px 10px; font-size: 0.85rem; color: #fff; background: linear-gradient(to top, rgba(0,0,0,.5), transparent); opacity: 0; transition: opacity .25s ease; }
 .ph:hover figcaption, .ph:focus-visible figcaption { opacity: 1; }
 .ph figcaption:empty { display: none; }
-.empty { border: 1px dashed var(--line); border-radius: var(--radius); padding: clamp(28px, 5vw, 56px); display: grid; gap: 10px; justify-items: start; background: var(--surface); }
-.empty h3 { font-size: 1.2rem; }
+.empty { background: var(--soft); border-radius: var(--radius); padding: clamp(28px, 5vw, 56px); display: grid; gap: 10px; justify-items: start; }
+.empty h3 { font-size: 1.25rem; }
 .empty p { color: var(--muted); max-width: 32rem; }
 
-/* Sessions */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: grid; gap: 14px; align-content: start; }
-.card .who { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-.card p { color: var(--muted); }
-.card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; color: var(--fg); font-size: 0.95rem; }
-.card li { padding-left: 18px; position: relative; }
-.card li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-.card .btn { justify-self: start; margin-top: 4px; }
+/* Sessions: a plain list */
+.sessions-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px 48px; align-items: start; }
+.sessions-grid .lede { font-size: 1.05rem; }
+.slist { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.slist li { display: grid; grid-template-columns: minmax(150px, 0.8fr) 2fr; gap: 6px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.slist h3 { font-size: 1.2rem; }
+.slist p { color: var(--muted); font-size: 1rem; }
+.note { color: var(--muted); font-size: 0.98rem; margin-top: 18px; }
 
 /* Book */
-.book { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(26px, 4vw, 48px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: center; }
-.book-text { display: grid; gap: 16px; min-width: 0; }
-.steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: step; }
-.steps li { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; color: var(--muted); }
-.steps li::before { counter-increment: step; content: counter(step); width: 32px; height: 32px; border-radius: 50%; background: var(--accent-soft); color: var(--fg); font-family: var(--display); font-weight: 700; display: grid; place-items: center; font-size: 0.95rem; }
-.steps b { color: var(--fg); font-weight: 600; }
+.book { background: var(--accent-soft); border-radius: var(--radius); padding: clamp(28px, 5vw, 56px); display: grid; gap: 18px; justify-items: start; }
+.book .lede { color: var(--fg); opacity: .85; }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 0.9rem; }
+footer { padding-block: 28px 36px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--line); }
 .foot-in { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
 /* Lightbox */
 dialog.lightbox { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1200px); width: auto; }
-dialog.lightbox::backdrop { background: rgba(10, 9, 8, .9); }
+dialog.lightbox::backdrop { background: rgba(20, 16, 14, .92); }
 .lb-inner { display: grid; gap: 10px; justify-items: center; }
-.lb-inner img { max-height: 82vh; max-width: 96vw; width: auto; height: auto; border-radius: 8px; object-fit: contain; }
-.lb-cap { color: #F2EFE9; font-size: 0.95rem; text-align: center; min-height: 1.4em; }
+.lb-inner img { max-height: 82vh; max-width: 96vw; width: auto; height: auto; border-radius: 6px; object-fit: contain; }
+.lb-cap { color: #F4EEE9; font-size: 0.95rem; text-align: center; min-height: 1.4em; }
 .lb-nav { display: flex; gap: 10px; }
-.lb-nav button { background: rgba(255,255,255,.12); color: #F2EFE9; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.lb-nav button { background: rgba(255,255,255,.12); color: #F4EEE9; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
 
 /* Owner editing */
 #edit-btn { margin-left: 4px; }
@@ -185,12 +171,11 @@ dialog.lightbox::backdrop { background: rgba(10, 9, 8, .9); }
 .econtrols input[type="text"], .econtrols select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--fg); font: inherit; font-size: 0.92rem; }
 .erow { display: flex; gap: 6px; flex-wrap: wrap; }
 .erow .btn { padding: 6px 10px; font-size: 0.85rem; }
-.cover-tag { position: absolute; }
 
 @media (max-width: 760px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-art { max-width: 480px; }
-  .book { grid-template-columns: 1fr; }
+  .intro, .sessions-grid { grid-template-columns: 1fr; }
+  .slist li { grid-template-columns: 1fr; }
+  .frame { aspect-ratio: 4 / 3; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -198,7 +183,7 @@ dialog.lightbox::backdrop { background: rgba(10, 9, 8, .9); }
 </style>
 </head>
 <body>
-<div id="site"><header class="top"><div class="wrap top-in"><a class="brand" href="#top">Sunny&#39;s Photography<span class="dot">.</span></a><nav class="nav"><a href="#portfolio">Portfolio</a><a href="#sessions">Sessions</a><a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book</a><button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav></div></header><main id="top"><section class="hero wrap"><div class="hero-text"><p class="eyebrow">Portrait photography</p><h1>Portraits that feel like you.</h1><p class="lede">Thoughtful portrait sessions for individuals and families, photographed with care and an easy, unhurried approach. The result is a set of images you will be proud to share and glad to keep.</p><div class="actions"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book a session</a><a class="btn" href="#portfolio">See the portfolio</a></div></div><div class="hero-art" id="hero-art"><div class="frame"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Featured portrait" decoding="async"></div></div></section><section class="section"><div class="wrap" id="portfolio"><div class="section-head"><div><p class="eyebrow">Portfolio</p><h2>Recent work</h2></div></div><div id="gallery-wrap"><div class="gallery" id="gallery"><figure class="ph" data-i="0" data-cat="portrait" tabindex="0"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="1" data-cat="portrait" tabindex="0"><img src="photos/81d317e997bc622b7a6f0976d5e97a6d.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1893/2400"><figcaption></figcaption></figure><figure class="ph" data-i="2" data-cat="portrait" tabindex="0"><img src="photos/7c3c874a1a57655d507ae3cbd1a18d19.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/2133"><figcaption></figcaption></figure><figure class="ph" data-i="3" data-cat="portrait" tabindex="0"><img src="photos/41d0739de3605fc7e472a584148301cd.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1759"><figcaption></figcaption></figure><figure class="ph" data-i="4" data-cat="portrait" tabindex="0"><img src="photos/e1547ee565af3ced747e7b3221dae7c9.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1551"><figcaption></figcaption></figure></div></div></div></section><section class="section"><div class="wrap" id="sessions"><div class="section-head"><div><p class="eyebrow">Sessions</p><h2>Choose a session</h2></div><p class="lede">Pick the session that fits, then send an interest form to get the conversation started. Not sure which? Choose the closest one and we will sort out the details together.</p></div><div class="cards"><article class="card"><p class="who">For one</p><h3>Single portraits</h3><p>For headshots, personal branding, a graduation, a birthday, or simply a set of photographs that look like you on a good day.</p><ul><li>One person, photographed at an easy pace</li><li>Location chosen together: outdoors, at home, or in the city</li><li>Edited photographs delivered as a digital gallery</li></ul><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a single portrait session</a></article><article class="card"><p class="who">For everyone</p><h3>Family portraits</h3><p>For families of any size and shape: parents and kids, grandparents, couples, new arrivals, and the dog if the dog is coming.</p><ul><li>Unposed moments alongside a few classic group photographs</li><li>Kid-friendly pacing, with breaks built in</li><li>Edited photographs delivered as a digital gallery</li></ul><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a family session</a></article><article class="card"><p class="who">Before the baby</p><h3>Maternity</h3><p>A calm session in the weeks before your baby arrives, on your own or with your partner and older children. Soft light and comfortable clothing.</p><ul><li>Timed for when you feel your best, usually the final trimester</li><li>At home, outdoors, or wherever you feel at ease</li><li>Partners and siblings welcome</li><li>Edited photographs delivered as a digital gallery</li></ul><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a maternity session</a></article><article class="card"><p class="who">Class of</p><h3>Senior pictures</h3><p>Portraits that mark the end of high school or college: a few classic ones for the family, and plenty that feel like you right now.</p><ul><li>Outfit changes and a mix of locations</li><li>Cap and gown, team, instrument, or activity photographs welcome</li><li>Edited photographs delivered as a digital gallery</li></ul><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a senior session</a></article><article class="card"><p class="who">Gatherings</p><h3>Small events</h3><p>Coverage for intimate occasions: birthdays, baby showers, engagement parties, anniversaries, small ceremonies, and family reunions.</p><ul><li>Candid coverage of the people and the moments</li><li>Group photographs arranged on the day</li><li>Edited photographs delivered as a digital gallery</li></ul><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request event coverage</a></article></div></div></section><section class="section"><div class="wrap" id="book"><div class="book"><div class="book-text"><p class="eyebrow">Book</p><h2>Interested? Start here.</h2><p class="lede">The interest form takes a couple of minutes. Tell me a little about who the photographs are for and when you are thinking of.</p><div class="actions"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Open the interest form</a></div></div><ol class="steps"><li><span><b>Fill out the form.</b> Which session, roughly when, and anything you have in mind.</span></li><li><span><b>We talk it through.</b> I will get back to you to discuss ideas, locations, and dates.</span></li><li><span><b>Session day.</b> Show up as yourselves. The rest is taken care of.</span></li></ol></div></div></section></main><footer><div class="wrap foot-in"><span>&copy; 2026 Sunny&#39;s Photography</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Interest form</a></div></footer><dialog class="lightbox" id="lightbox"><div class="lb-inner"><img id="lb-img" alt=""><p class="lb-cap" id="lb-cap"></p><div class="lb-nav"><button type="button" id="lb-prev">Previous</button><button type="button" id="lb-close">Close</button><button type="button" id="lb-next">Next</button></div></div></dialog></div>
+<div id="site"><header class="top"><div class="wrap top-in"><a class="brand" href="#top">Sunny&#39;s Photography</a><nav class="nav"><a href="#portfolio">Portfolio</a><a href="#sessions">Sessions</a><a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book</a><button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav></div></header><main id="top"><section class="hero wrap"><div class="hero-art" id="hero-art"><div class="frame"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Featured portrait" decoding="async"></div></div><div class="intro"><h1>Natural, relaxed portraits of people and the moments they share.</h1><div class="intro-side"><p class="lede">Sessions for individuals, families, expecting parents, seniors, and small gatherings. Photographed with care, delivered as a private online gallery.</p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book a session</a></div></div></section><section class="section"><div class="wrap" id="portfolio"><div class="section-head"><h2>Recent work</h2></div><div id="gallery-wrap"><div class="gallery" id="gallery"><figure class="ph" data-i="0" data-cat="portrait" tabindex="0"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="1" data-cat="portrait" tabindex="0"><img src="photos/81d317e997bc622b7a6f0976d5e97a6d.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1893/2400"><figcaption></figcaption></figure><figure class="ph" data-i="2" data-cat="portrait" tabindex="0"><img src="photos/7c3c874a1a57655d507ae3cbd1a18d19.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/2133"><figcaption></figcaption></figure><figure class="ph" data-i="3" data-cat="portrait" tabindex="0"><img src="photos/41d0739de3605fc7e472a584148301cd.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1759"><figcaption></figcaption></figure><figure class="ph" data-i="4" data-cat="portrait" tabindex="0"><img src="photos/e1547ee565af3ced747e7b3221dae7c9.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1551"><figcaption></figcaption></figure></div></div></div></section><section class="section"><div class="wrap" id="sessions"><div class="sessions-grid"><div><h2>Sessions</h2><p class="lede" style="margin-top:12px">Not sure which fits? Pick the closest one on the form and we will work out the details together.</p></div><div><ul class="slist"><li><h3>Single portraits</h3><p>Headshots, personal branding, a milestone, or simply a good set of photographs of you.</p></li><li><h3>Family portraits</h3><p>Everyone together, kids and pets included, at a pace that works for the youngest person there.</p></li><li><h3>Maternity</h3><p>A calm session in the weeks before the baby arrives, on your own or with your partner and children.</p></li><li><h3>Senior pictures</h3><p>Marking the end of high school or college, with room for outfit changes and a couple of locations.</p></li><li><h3>Small events</h3><p>Birthdays, showers, engagement parties, anniversaries, and other intimate gatherings.</p></li></ul><p class="note">Every session includes edited photographs delivered as a private online gallery.</p><p style="margin-top:22px"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a session</a></p></div></div></div></section><section class="section"><div class="wrap" id="book"><div class="book"><h2>Interested? Say hello.</h2><p class="lede">Tell me a little about who the photographs are for and when you are thinking of. I will get back to you to talk through ideas, locations, and dates.</p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Fill out the interest form</a></div></div></section></main><footer><div class="wrap foot-in"><span>&copy; 2026 Sunny&#39;s Photography</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Interest form</a></div></footer><dialog class="lightbox" id="lightbox"><div class="lb-inner"><img id="lb-img" alt=""><p class="lb-cap" id="lb-cap"></p><div class="lb-nav"><button type="button" id="lb-prev">Previous</button><button type="button" id="lb-close">Close</button><button type="button" id="lb-next">Next</button></div></div></dialog></div>
 <script type="application/json" id="site-data">{"cover":"87bb8b88c4783054845341d746a60c1a","photos":[{"id":"87bb8b88c4783054845341d746a60c1a","caption":"","cat":"portrait","w":2400,"h":1600},{"id":"81d317e997bc622b7a6f0976d5e97a6d","caption":"","cat":"portrait","w":1893,"h":2400},{"id":"7c3c874a1a57655d507ae3cbd1a18d19","caption":"","cat":"portrait","w":2400,"h":2133},{"id":"41d0739de3605fc7e472a584148301cd","caption":"","cat":"portrait","w":2400,"h":1759},{"id":"e1547ee565af3ced747e7b3221dae7c9","caption":"","cat":"portrait","w":2400,"h":1551}]}</script>
 <script id="site-app">
 /* Sunny's Photography — page source. renderSite(state) is the canonical template:
@@ -208,7 +193,7 @@ var Site = (function () {
   var CATS = { portrait: 'Portraits', family: 'Family', maternity: 'Maternity', senior: 'Seniors', event: 'Events', other: 'More' };
   var TITLE_HTML = "<title>Sunny's Photography</title>";
   var META_HTML = '<meta name="claude:viewport-fit-sides" content="cover">';
-  var FONTS_HTML = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&display=swap">';
+  var FONTS_HTML = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600&display=swap">';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -230,7 +215,7 @@ var Site = (function () {
     var photos = state.photos || [];
     if (!photos.length) {
       return '<div class="empty"><h3>Portfolio coming soon</h3>' +
-        '<p>New work is being added. In the meantime, the session details below say what to expect, and the interest form is open.</p>' +
+        '<p>New work is being added. In the meantime, the sessions below say what to expect, and the interest form is open.</p>' +
         '<a class="btn small" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Fill out the interest form</a></div>';
     }
     return '<div class="gallery" id="gallery">' + photos.map(figure).join('') + '</div>';
@@ -264,68 +249,49 @@ var Site = (function () {
 
   function renderSite(state) {
     var year = new Date().getFullYear();
+    var form = attr(FORM_URL);
+    var sessions = [
+      ['Single portraits', 'Headshots, personal branding, a milestone, or simply a good set of photographs of you.'],
+      ['Family portraits', 'Everyone together, kids and pets included, at a pace that works for the youngest person there.'],
+      ['Maternity', 'A calm session in the weeks before the baby arrives, on your own or with your partner and children.'],
+      ['Senior pictures', 'Marking the end of high school or college, with room for outfit changes and a couple of locations.'],
+      ['Small events', 'Birthdays, showers, engagement parties, anniversaries, and other intimate gatherings.']
+    ];
     return '' +
       '<header class="top"><div class="wrap top-in">' +
-        '<a class="brand" href="#top">Sunny&#39;s Photography<span class="dot">.</span></a>' +
+        '<a class="brand" href="#top">Sunny&#39;s Photography</a>' +
         '<nav class="nav"><a href="#portfolio">Portfolio</a><a href="#sessions">Sessions</a>' +
-        '<a class="nav-cta" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Book</a>' +
+        '<a class="nav-cta" href="' + form + '" target="_blank" rel="noopener">Book</a>' +
         '<button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav>' +
       '</div></header>' +
       '<main id="top">' +
         '<section class="hero wrap">' +
-          '<div class="hero-text">' +
-            '<p class="eyebrow">Portrait photography</p>' +
-            '<h1>Portraits that feel like you.</h1>' +
-            '<p class="lede">Thoughtful portrait sessions for individuals and families, photographed with care and an easy, unhurried approach. The result is a set of images you will be proud to share and glad to keep.</p>' +
-            '<div class="actions"><a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Book a session</a>' +
-            '<a class="btn" href="#portfolio">See the portfolio</a></div>' +
-          '</div>' +
           '<div class="hero-art" id="hero-art">' + renderHeroArt(state) + '</div>' +
+          '<div class="intro">' +
+            '<h1>Natural, relaxed portraits of people and the moments they share.</h1>' +
+            '<div class="intro-side"><p class="lede">Sessions for individuals, families, expecting parents, seniors, and small gatherings. Photographed with care, delivered as a private online gallery.</p>' +
+            '<a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Book a session</a></div>' +
+          '</div>' +
         '</section>' +
         '<section class="section"><div class="wrap" id="portfolio">' +
-          '<div class="section-head"><div><p class="eyebrow">Portfolio</p><h2>Recent work</h2></div>' + renderChips(state) + '</div>' +
+          '<div class="section-head"><h2>Recent work</h2>' + renderChips(state) + '</div>' +
           '<div id="gallery-wrap">' + renderGallery(state) + '</div>' +
         '</div></section>' +
-        '<section class="section"><div class="wrap" id="sessions">' +
-          '<div class="section-head"><div><p class="eyebrow">Sessions</p><h2>Choose a session</h2></div>' +
-          '<p class="lede">Pick the session that fits, then send an interest form to get the conversation started. Not sure which? Choose the closest one and we will sort out the details together.</p></div>' +
-          '<div class="cards">' +
-            '<article class="card"><p class="who">For one</p><h3>Single portraits</h3>' +
-              '<p>For headshots, personal branding, a graduation, a birthday, or simply a set of photographs that look like you on a good day.</p>' +
-              '<ul><li>One person, photographed at an easy pace</li><li>Location chosen together: outdoors, at home, or in the city</li><li>Edited photographs delivered as a digital gallery</li></ul>' +
-              '<a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Request a single portrait session</a></article>' +
-            '<article class="card"><p class="who">For everyone</p><h3>Family portraits</h3>' +
-              '<p>For families of any size and shape: parents and kids, grandparents, couples, new arrivals, and the dog if the dog is coming.</p>' +
-              '<ul><li>Unposed moments alongside a few classic group photographs</li><li>Kid-friendly pacing, with breaks built in</li><li>Edited photographs delivered as a digital gallery</li></ul>' +
-              '<a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Request a family session</a></article>' +
-            '<article class="card"><p class="who">Before the baby</p><h3>Maternity</h3>' +
-              '<p>A calm session in the weeks before your baby arrives, on your own or with your partner and older children. Soft light and comfortable clothing.</p>' +
-              '<ul><li>Timed for when you feel your best, usually the final trimester</li><li>At home, outdoors, or wherever you feel at ease</li><li>Partners and siblings welcome</li><li>Edited photographs delivered as a digital gallery</li></ul>' +
-              '<a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Request a maternity session</a></article>' +
-            '<article class="card"><p class="who">Class of</p><h3>Senior pictures</h3>' +
-              '<p>Portraits that mark the end of high school or college: a few classic ones for the family, and plenty that feel like you right now.</p>' +
-              '<ul><li>Outfit changes and a mix of locations</li><li>Cap and gown, team, instrument, or activity photographs welcome</li><li>Edited photographs delivered as a digital gallery</li></ul>' +
-              '<a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Request a senior session</a></article>' +
-            '<article class="card"><p class="who">Gatherings</p><h3>Small events</h3>' +
-              '<p>Coverage for intimate occasions: birthdays, baby showers, engagement parties, anniversaries, small ceremonies, and family reunions.</p>' +
-              '<ul><li>Candid coverage of the people and the moments</li><li>Group photographs arranged on the day</li><li>Edited photographs delivered as a digital gallery</li></ul>' +
-              '<a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Request event coverage</a></article>' +
-          '</div>' +
-        '</div></section>' +
+        '<section class="section"><div class="wrap" id="sessions"><div class="sessions-grid">' +
+          '<div><h2>Sessions</h2><p class="lede" style="margin-top:12px">Not sure which fits? Pick the closest one on the form and we will work out the details together.</p></div>' +
+          '<div><ul class="slist">' +
+            sessions.map(function (s) { return '<li><h3>' + s[0] + '</h3><p>' + s[1] + '</p></li>'; }).join('') +
+          '</ul><p class="note">Every session includes edited photographs delivered as a private online gallery.</p>' +
+          '<p style="margin-top:22px"><a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Request a session</a></p></div>' +
+        '</div></div></section>' +
         '<section class="section"><div class="wrap" id="book">' +
-          '<div class="book"><div class="book-text">' +
-            '<p class="eyebrow">Book</p><h2>Interested? Start here.</h2>' +
-            '<p class="lede">The interest form takes a couple of minutes. Tell me a little about who the photographs are for and when you are thinking of.</p>' +
-            '<div class="actions"><a class="btn primary" href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Open the interest form</a></div>' +
+          '<div class="book"><h2>Interested? Say hello.</h2>' +
+            '<p class="lede">Tell me a little about who the photographs are for and when you are thinking of. I will get back to you to talk through ideas, locations, and dates.</p>' +
+            '<a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Fill out the interest form</a>' +
           '</div>' +
-          '<ol class="steps">' +
-            '<li><span><b>Fill out the form.</b> Which session, roughly when, and anything you have in mind.</span></li>' +
-            '<li><span><b>We talk it through.</b> I will get back to you to discuss ideas, locations, and dates.</span></li>' +
-            '<li><span><b>Session day.</b> Show up as yourselves. The rest is taken care of.</span></li>' +
-          '</ol></div>' +
         '</div></section>' +
       '</main>' +
-      '<footer><div class="wrap foot-in"><span>&copy; ' + year + ' Sunny&#39;s Photography</span><a href="' + attr(FORM_URL) + '" target="_blank" rel="noopener">Interest form</a></div></footer>' +
+      '<footer><div class="wrap foot-in"><span>&copy; ' + year + ' Sunny&#39;s Photography</span><a href="' + form + '" target="_blank" rel="noopener">Interest form</a></div></footer>' +
       '<dialog class="lightbox" id="lightbox"><div class="lb-inner"><img id="lb-img" alt=""><p class="lb-cap" id="lb-cap"></p>' +
         '<div class="lb-nav"><button type="button" id="lb-prev">Previous</button><button type="button" id="lb-close">Close</button><button type="button" id="lb-next">Next</button></div></div></dialog>';
   }
