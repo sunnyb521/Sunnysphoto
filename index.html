@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://sunnysphoto.com/">
 <meta property="og:image" content="https://sunnysphoto.com/photos/87bb8b88c4783054845341d746a60c1a.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600;700;800&display=swap">
 <style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style id="site-css">
 /* Layout: white page, photographs first. A wide cover image under a slim nav, a short intro, an edge-to-edge
@@ -29,6 +29,7 @@
   --accent-fg: #2A2420;
   --accent-soft: #FBEFE6;
   --danger: #C2543A;
+  --accent-deep: #B8653F;
   --display: "Fraunces", "Iowan Old Style", "Palatino", Georgia, serif;
   --body: "Mulish", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --radius: 10px;
@@ -71,12 +72,20 @@ button { font: inherit; color: inherit; }
 
 /* Header */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); }
-.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+.top { border-bottom: 1px solid var(--line); }
+.top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px 8px; }
 .brand { font-family: var(--display); font-weight: 500; font-size: 1.3rem; text-decoration: none; white-space: nowrap; }
 .nav { display: flex; align-items: center; gap: 6px 22px; flex-wrap: wrap; justify-content: flex-end; }
 .nav a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: 0.95rem; }
 .nav a:hover { color: var(--fg); }
 .nav .nav-cta { color: var(--accent-fg); background: var(--accent); padding: 8px 16px; border-radius: 999px; font-weight: 600; }
+
+.pills-wrap { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.pills-wrap::-webkit-scrollbar { display: none; }
+.pills { display: flex; gap: 8px; padding-block: 4px 12px; width: max-content; }
+.pills a { text-decoration: none; white-space: nowrap; font-weight: 600; font-size: 0.92rem; color: var(--fg); background: var(--soft); border-radius: 999px; padding: 8px 14px; }
+.pills a:hover { background: var(--accent-soft); }
+.eyebrow { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-deep); }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); text-decoration: none; font-weight: 600; cursor: pointer; transition: transform .15s ease, background .15s ease; }
@@ -88,15 +97,20 @@ button { font: inherit; color: inherit; }
 .btn[disabled] { opacity: .55; cursor: default; transform: none; }
 .link { font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
 
-/* Hero: cover photo, then a short intro */
-.hero { padding-block: 4px 0; }
+/* Hero: eyebrow, two-line headline, intro, offer strip, then the cover photo */
+.hero { padding-block: clamp(28px, 5vw, 56px) 0; display: grid; gap: 20px; }
+h1 { font-family: var(--body); font-weight: 800; font-size: clamp(2.3rem, 5.6vw, 4rem); line-height: 1.05; letter-spacing: -0.025em; max-width: 18ch; }
+h1 em { font-family: var(--display); font-style: italic; font-weight: 400; color: var(--accent-deep); letter-spacing: -0.01em; }
+.intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 20px 48px; align-items: end; }
+.intro .lede { font-size: 1.2rem; }
+.actions { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-self: start; }
+.offer { color: var(--muted); font-size: 1.02rem; padding-top: 18px; border-top: 1px solid var(--line); }
+.offer b { color: var(--fg); font-weight: 600; }
+.hero-art { margin-top: 10px; }
 .frame { position: relative; aspect-ratio: 3 / 2; max-width: 100%; border-radius: var(--radius); overflow: hidden; background: var(--soft); }
 .frame img { width: 100%; height: 100%; object-fit: cover; }
 .frame.placeholder { background: linear-gradient(160deg, var(--soft), var(--accent-soft)); aspect-ratio: 3 / 1.4; }
 .frame.placeholder .vf, .frame.placeholder .ring { display: none; }
-.intro { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px 48px; align-items: end; padding-block: clamp(28px, 5vw, 56px) clamp(20px, 4vw, 40px); }
-.intro h1 { max-width: 20ch; }
-.intro-side { display: grid; gap: 18px; justify-items: start; }
 
 /* Sections */
 .section { padding-block: clamp(36px, 6vw, 72px); }
@@ -127,7 +141,17 @@ button { font: inherit; color: inherit; }
 .slist p { color: var(--muted); font-size: 1rem; }
 .note { color: var(--muted); font-size: 0.98rem; margin-top: 18px; }
 
+/* How it works: timeline */
+.timeline { margin: 0; padding: 0 0 0 22px; list-style: none; border-left: 2px solid var(--fg); display: grid; gap: 28px; }
+.timeline li { position: relative; display: grid; gap: 6px; }
+.timeline li::before { content: ""; position: absolute; left: -29px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg); }
+.timeline li:last-child::before { background: var(--accent); border-color: var(--accent); }
+.timeline .when { color: var(--accent-deep); font-weight: 700; font-size: 0.95rem; }
+.timeline h3 { font-family: var(--body); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em; }
+.timeline p { color: var(--muted); font-size: 1rem; max-width: 36rem; }
+
 /* Book */
+.book h2 { font-family: var(--body); font-weight: 800; letter-spacing: -0.02em; max-width: 18ch; }
 .book { background: var(--accent-soft); border-radius: var(--radius); padding: clamp(28px, 5vw, 56px); display: grid; gap: 18px; justify-items: start; }
 .book .lede { color: var(--fg); opacity: .85; }
 
@@ -164,6 +188,7 @@ dialog.lightbox::backdrop { background: rgba(20, 16, 14, .92); }
 
 @media (max-width: 760px) {
   .intro, .sessions-grid { grid-template-columns: 1fr; }
+  .intro .lede { font-size: 1.1rem; }
   .slist li { grid-template-columns: 1fr; }
   .frame { aspect-ratio: 4 / 3; }
 }
@@ -173,7 +198,7 @@ dialog.lightbox::backdrop { background: rgba(20, 16, 14, .92); }
 </style>
 </head>
 <body>
-<div id="site"><header class="top"><div class="wrap top-in"><a class="brand" href="#top">Sunny&#39;s Photography</a><nav class="nav"><a href="#portfolio">Portfolio</a><a href="#sessions">Sessions</a><a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book</a><button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav></div></header><main id="top"><section class="hero wrap"><div class="hero-art" id="hero-art"><div class="frame"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Featured portrait" decoding="async"></div></div><div class="intro"><h1>Hi, I&#39;m Sunny. I photograph people and the people they love.</h1><div class="intro-side"><p class="lede">Portrait sessions for individuals, families, expecting parents, graduating seniors, and small gatherings. Based in Northern Virginia. I keep things relaxed, and you get a private online gallery of digital photographs to keep.</p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book a session</a></div></div></section><section class="section"><div class="wrap" id="portfolio"><div class="section-head"><h2>Recent work</h2></div><div id="gallery-wrap"><div class="gallery" id="gallery"><figure class="ph" data-i="0" data-cat="portrait" tabindex="0"><img src="photos/7c3c874a1a57655d507ae3cbd1a18d19.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/2133"><figcaption></figcaption></figure><figure class="ph" data-i="1" data-cat="portrait" tabindex="0"><img src="photos/81d317e997bc622b7a6f0976d5e97a6d.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1893/2400"><figcaption></figcaption></figure><figure class="ph" data-i="2" data-cat="portrait" tabindex="0"><img src="photos/41d0739de3605fc7e472a584148301cd.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1759"><figcaption></figcaption></figure><figure class="ph" data-i="3" data-cat="portrait" tabindex="0"><img src="photos/e1547ee565af3ced747e7b3221dae7c9.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1551"><figcaption></figcaption></figure><figure class="ph" data-i="4" data-cat="portrait" tabindex="0"><img src="photos/293e1178e22a3d5ceb37343ad553b6a8.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1600/2400"><figcaption></figcaption></figure><figure class="ph" data-i="5" data-cat="portrait" tabindex="0"><img src="photos/9151b03116717f50a175d32a9f886369.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="6" data-cat="portrait" tabindex="0"><img src="photos/802d09d7baed52b87d3dc985073ecb27.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="7" data-cat="portrait" tabindex="0"><img src="photos/77c558133d9ed486b92007b6ff6b06a6.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1536/2304"><figcaption></figcaption></figure><figure class="ph" data-i="8" data-cat="portrait" tabindex="0"><img src="photos/08f5aef200776b8eab18c64eec32f737.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="9" data-cat="portrait" tabindex="0"><img src="photos/580b2b9de8ea0365ed94495c1407ae6f.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure></div></div></div></section><section class="section"><div class="wrap" id="sessions"><div class="sessions-grid"><div><h2>Sessions</h2><p class="lede" style="margin-top:12px">Not sure which fits? Pick the closest one on the form and we will work out the details together.</p></div><div><ul class="slist"><li><h3>Single portraits</h3><p>Headshots, personal branding, a milestone, or simply a good set of photographs of you.</p></li><li><h3>Family portraits</h3><p>Everyone together, kids and pets included, at a pace that works for the youngest person there.</p></li><li><h3>Maternity</h3><p>A calm session in the weeks before the baby arrives, on your own or with your partner and children.</p></li><li><h3>Senior pictures</h3><p>Portraits to mark the end of high school or college, in a setting that feels like you.</p></li><li><h3>Small events</h3><p>Birthdays, showers, engagement parties, anniversaries, and other intimate gatherings.</p></li></ul><p class="note">Every session includes digital photographs delivered as a private online gallery.</p><p style="margin-top:22px"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a session</a></p></div></div></div></section><section class="section"><div class="wrap" id="book"><div class="book"><h2>Interested? Say hello.</h2><p class="lede">Tell me a little about who the photographs are for and when you are thinking of. I will get back to you to talk through ideas, locations, and dates.</p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Fill out the interest form</a></div></div></section></main><footer><div class="wrap foot-in"><span>&copy; 2026 Sunny&#39;s Photography &middot; Northern Virginia</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Interest form</a></div></footer><dialog class="lightbox" id="lightbox"><div class="lb-inner"><img id="lb-img" alt=""><p class="lb-cap" id="lb-cap"></p><div class="lb-nav"><button type="button" id="lb-prev">Previous</button><button type="button" id="lb-close">Close</button><button type="button" id="lb-next">Next</button></div></div></dialog></div>
+<div id="site"><header class="top"><div class="wrap top-in"><a class="brand" href="#top">Sunny&#39;s Photography</a><nav class="nav"><a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book</a><button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav></div><div class="wrap pills-wrap"><nav class="pills" aria-label="Sections"><a href="#portfolio">Work</a><a href="#sessions">Sessions</a><a href="#how">How it works</a><a href="#book">Book</a></nav></div></header><main id="top"><section class="hero wrap"><p class="eyebrow">Portraits &middot; Northern Virginia</p><h1>Give me thirty minutes.<br><em>Keep ten photographs for good.</em></h1><div class="intro"><p class="lede">Short, relaxed portrait sessions for individuals, families, expecting parents, graduating seniors, and small gatherings. No stiff posing and no long afternoon lost to it. Then you get a private online gallery of photographs worth keeping.</p><div class="actions"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Book a session</a><a class="link" href="#how">How it works</a></div></div><p class="offer"><b>30 minutes</b> &middot; <b>10 digital photographs</b> &middot; in your inbox within <b>3&ndash;4 days</b></p><div class="hero-art" id="hero-art"><div class="frame"><img src="photos/87bb8b88c4783054845341d746a60c1a.jpg" alt="Featured portrait" decoding="async"></div></div></section><section class="section"><div class="wrap" id="portfolio"><div class="section-head"><h2>Recent work</h2></div><div id="gallery-wrap"><div class="gallery" id="gallery"><figure class="ph" data-i="0" data-cat="portrait" tabindex="0"><img src="photos/7c3c874a1a57655d507ae3cbd1a18d19.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/2133"><figcaption></figcaption></figure><figure class="ph" data-i="1" data-cat="portrait" tabindex="0"><img src="photos/81d317e997bc622b7a6f0976d5e97a6d.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1893/2400"><figcaption></figcaption></figure><figure class="ph" data-i="2" data-cat="portrait" tabindex="0"><img src="photos/41d0739de3605fc7e472a584148301cd.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1759"><figcaption></figcaption></figure><figure class="ph" data-i="3" data-cat="portrait" tabindex="0"><img src="photos/e1547ee565af3ced747e7b3221dae7c9.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1551"><figcaption></figcaption></figure><figure class="ph" data-i="4" data-cat="portrait" tabindex="0"><img src="photos/293e1178e22a3d5ceb37343ad553b6a8.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1600/2400"><figcaption></figcaption></figure><figure class="ph" data-i="5" data-cat="portrait" tabindex="0"><img src="photos/9151b03116717f50a175d32a9f886369.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="6" data-cat="portrait" tabindex="0"><img src="photos/802d09d7baed52b87d3dc985073ecb27.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="7" data-cat="portrait" tabindex="0"><img src="photos/77c558133d9ed486b92007b6ff6b06a6.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:1536/2304"><figcaption></figcaption></figure><figure class="ph" data-i="8" data-cat="portrait" tabindex="0"><img src="photos/08f5aef200776b8eab18c64eec32f737.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure><figure class="ph" data-i="9" data-cat="portrait" tabindex="0"><img src="photos/580b2b9de8ea0365ed94495c1407ae6f.jpg" alt="Portrait photograph" loading="lazy" decoding="async" style="aspect-ratio:2400/1600"><figcaption></figcaption></figure></div></div></div></section><section class="section"><div class="wrap" id="sessions"><div class="sessions-grid"><div><h2>Sessions</h2><p class="lede" style="margin-top:12px">Not sure which fits? Pick the closest one on the form and we will work out the details together.</p></div><div><ul class="slist"><li><h3>Single portraits</h3><p>Headshots, personal branding, a milestone, or simply a good set of photographs of you.</p></li><li><h3>Family portraits</h3><p>Everyone together, kids and pets included, at a pace that works for the youngest person there.</p></li><li><h3>Maternity</h3><p>A calm session in the weeks before the baby arrives, on your own or with your partner and children.</p></li><li><h3>Senior pictures</h3><p>Portraits to mark the end of high school or college, in a setting that feels like you.</p></li><li><h3>Small events</h3><p>Birthdays, showers, engagement parties, anniversaries, and other intimate gatherings.</p></li></ul><p class="note">Every session is 30 minutes and includes 10 digital photographs delivered as a private online gallery. Small events may run longer; just say so on the form.</p><p style="margin-top:22px"><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Request a session</a></p></div></div></div></section><section class="section"><div class="wrap" id="how"><div class="sessions-grid"><div><h2>How it works</h2><p class="lede" style="margin-top:12px">Quicker than getting everyone dressed, and a lot more fun.</p></div><ol class="timeline"><li><span class="when">Before</span><h3>Fill out the form.</h3><p>Tell me who the photographs are for and roughly when. I will reply to settle on a place and a time: your yard, a favorite park, or somewhere that means something to you.</p></li><li><span class="when">The session &middot; 30 minutes</span><h3>Nobody has to say cheese.</h3><p>I find the good light and photograph you as you are. Kids can be kids, dogs can be dogs, and if someone needs a snack break, we take one.</p></li><li><span class="when">3&ndash;4 days later</span><h3>Your ten photographs arrive.</h3><p>A private online gallery of digital photographs, ready to print, frame, share, or put on the holiday card.</p></li></ol></div></div></section><section class="section"><div class="wrap" id="book"><div class="book"><h2>Book it before they grow another inch.</h2><p class="lede">The interest form takes two minutes. Tell me a little about who the photographs are for and when you are thinking of, and I will get back to you.</p><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Fill out the interest form</a></div></div></section></main><footer><div class="wrap foot-in"><span>&copy; 2026 Sunny&#39;s Photography &middot; Northern Virginia</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSc6YGBpLeQ5Ve33N69XRc-mJvCQeKB843Cjy4NjVOFBiDQaHg/viewform?usp=sharing&amp;ouid=117712875762018089065" target="_blank" rel="noopener">Interest form</a></div></footer><dialog class="lightbox" id="lightbox"><div class="lb-inner"><img id="lb-img" alt=""><p class="lb-cap" id="lb-cap"></p><div class="lb-nav"><button type="button" id="lb-prev">Previous</button><button type="button" id="lb-close">Close</button><button type="button" id="lb-next">Next</button></div></div></dialog></div>
 <script type="application/json" id="site-data">{"cover":"87bb8b88c4783054845341d746a60c1a","photos":[{"id":"87bb8b88c4783054845341d746a60c1a","caption":"","cat":"portrait","w":2400,"h":1600},{"id":"7c3c874a1a57655d507ae3cbd1a18d19","caption":"","cat":"portrait","w":2400,"h":2133},{"id":"81d317e997bc622b7a6f0976d5e97a6d","caption":"","cat":"portrait","w":1893,"h":2400},{"id":"41d0739de3605fc7e472a584148301cd","caption":"","cat":"portrait","w":2400,"h":1759},{"id":"e1547ee565af3ced747e7b3221dae7c9","caption":"","cat":"portrait","w":2400,"h":1551},{"id":"293e1178e22a3d5ceb37343ad553b6a8","caption":"","cat":"portrait","w":1600,"h":2400},{"id":"9151b03116717f50a175d32a9f886369","caption":"","cat":"portrait","w":2400,"h":1600},{"id":"802d09d7baed52b87d3dc985073ecb27","caption":"","cat":"portrait","w":2400,"h":1600},{"id":"77c558133d9ed486b92007b6ff6b06a6","caption":"","cat":"portrait","w":1536,"h":2304},{"id":"08f5aef200776b8eab18c64eec32f737","caption":"","cat":"portrait","w":2400,"h":1600},{"id":"580b2b9de8ea0365ed94495c1407ae6f","caption":"","cat":"portrait","w":2400,"h":1600}]}</script>
 <script id="site-app">
 /* Sunny's Photography — page source. renderSite(state) is the canonical template:
@@ -183,7 +208,7 @@ var Site = (function () {
   var CATS = { portrait: 'Portraits', family: 'Family', maternity: 'Maternity', senior: 'Seniors', event: 'Events', other: 'More' };
   var TITLE_HTML = "<title>Sunny's Photography</title>";
   var META_HTML = '<meta name="claude:viewport-fit-sides" content="cover">';
-  var FONTS_HTML = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600&display=swap">';
+  var FONTS_HTML = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Mulish:wght@400;500;600;700;800&display=swap">';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -259,18 +284,22 @@ var Site = (function () {
     return '' +
       '<header class="top"><div class="wrap top-in">' +
         '<a class="brand" href="#top">Sunny&#39;s Photography</a>' +
-        '<nav class="nav"><a href="#portfolio">Portfolio</a><a href="#sessions">Sessions</a>' +
+        '<nav class="nav">' +
         '<a class="nav-cta" href="' + form + '" target="_blank" rel="noopener">Book</a>' +
         '<button id="edit-btn" class="btn small" type="button" hidden>Edit portfolio</button></nav>' +
-      '</div></header>' +
+      '</div>' +
+      '<div class="wrap pills-wrap"><nav class="pills" aria-label="Sections"><a href="#portfolio">Work</a><a href="#sessions">Sessions</a><a href="#how">How it works</a><a href="#book">Book</a></nav></div>' +
+      '</header>' +
       '<main id="top">' +
         '<section class="hero wrap">' +
-          '<div class="hero-art" id="hero-art">' + renderHeroArt(state) + '</div>' +
+          '<p class="eyebrow">Portraits &middot; Northern Virginia</p>' +
+          '<h1>Give me thirty minutes.<br><em>Keep ten photographs for good.</em></h1>' +
           '<div class="intro">' +
-            '<h1>Hi, I&#39;m Sunny. I photograph people and the people they love.</h1>' +
-            '<div class="intro-side"><p class="lede">Portrait sessions for individuals, families, expecting parents, graduating seniors, and small gatherings. Based in Northern Virginia. I keep things relaxed, and you get a private online gallery of digital photographs to keep.</p>' +
-            '<a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Book a session</a></div>' +
+            '<p class="lede">Short, relaxed portrait sessions for individuals, families, expecting parents, graduating seniors, and small gatherings. No stiff posing and no long afternoon lost to it. Then you get a private online gallery of photographs worth keeping.</p>' +
+            '<div class="actions"><a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Book a session</a><a class="link" href="#how">How it works</a></div>' +
           '</div>' +
+          '<p class="offer"><b>30 minutes</b> &middot; <b>10 digital photographs</b> &middot; in your inbox within <b>3&ndash;4 days</b></p>' +
+          '<div class="hero-art" id="hero-art">' + renderHeroArt(state) + '</div>' +
         '</section>' +
         '<section class="section"><div class="wrap" id="portfolio">' +
           '<div class="section-head"><h2>Recent work</h2>' + renderChips(state) + '</div>' +
@@ -280,12 +309,20 @@ var Site = (function () {
           '<div><h2>Sessions</h2><p class="lede" style="margin-top:12px">Not sure which fits? Pick the closest one on the form and we will work out the details together.</p></div>' +
           '<div><ul class="slist">' +
             sessions.map(function (s) { return '<li><h3>' + s[0] + '</h3><p>' + s[1] + '</p></li>'; }).join('') +
-          '</ul><p class="note">Every session includes digital photographs delivered as a private online gallery.</p>' +
+          '</ul><p class="note">Every session is 30 minutes and includes 10 digital photographs delivered as a private online gallery. Small events may run longer; just say so on the form.</p>' +
           '<p style="margin-top:22px"><a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Request a session</a></p></div>' +
         '</div></div></section>' +
+        '<section class="section"><div class="wrap" id="how"><div class="sessions-grid">' +
+          '<div><h2>How it works</h2><p class="lede" style="margin-top:12px">Quicker than getting everyone dressed, and a lot more fun.</p></div>' +
+          '<ol class="timeline">' +
+            '<li><span class="when">Before</span><h3>Fill out the form.</h3><p>Tell me who the photographs are for and roughly when. I will reply to settle on a place and a time: your yard, a favorite park, or somewhere that means something to you.</p></li>' +
+            '<li><span class="when">The session &middot; 30 minutes</span><h3>Nobody has to say cheese.</h3><p>I find the good light and photograph you as you are. Kids can be kids, dogs can be dogs, and if someone needs a snack break, we take one.</p></li>' +
+            '<li><span class="when">3&ndash;4 days later</span><h3>Your ten photographs arrive.</h3><p>A private online gallery of digital photographs, ready to print, frame, share, or put on the holiday card.</p></li>' +
+          '</ol>' +
+        '</div></div></section>' +
         '<section class="section"><div class="wrap" id="book">' +
-          '<div class="book"><h2>Interested? Say hello.</h2>' +
-            '<p class="lede">Tell me a little about who the photographs are for and when you are thinking of. I will get back to you to talk through ideas, locations, and dates.</p>' +
+          '<div class="book"><h2>Book it before they grow another inch.</h2>' +
+            '<p class="lede">The interest form takes two minutes. Tell me a little about who the photographs are for and when you are thinking of, and I will get back to you.</p>' +
             '<a class="btn primary" href="' + form + '" target="_blank" rel="noopener">Fill out the interest form</a>' +
           '</div>' +
         '</div></section>' +
